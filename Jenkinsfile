@@ -17,6 +17,7 @@ pipeline {
   stages {
     stage("Build") {
       steps {
+        sh ('chmod +x ./script.sh')
         echo "Building...";
       }
     }
@@ -34,7 +35,7 @@ pipeline {
       }
       steps {
         input message: "Deploy to environment...", ok: "Deploy"
-        echo "Deploying to ${params.ENVIRONMENT}."
+        echo "Deploying to ${params.ENVIRONMENT}.";
       }
     }
   }
